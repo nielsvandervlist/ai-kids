@@ -1,0 +1,19 @@
+.card {
+    &--purple {
+        padding: 30px;
+        background: rgba(184, 159, 213, 0.16);
+        border: 1px solid #B89FD5;
+        box-shadow: 0 2px 7px 0 #8758AF;
+    }
+    &--purple-info {
+        padding: 30px;
+        background: rgba(184,159,213,0.16);
+        box-shadow: 0 2px 7px 0 #8758AF;
+        border-radius: 15px 0 15px 15px;
+    }
+    &--game {
+        background: rgba(83,33,141,0.16);
+        box-shadow: 0 2px 7px 4px #8758AF;
+        border-radius: 15px;
+    }
+}
