@@ -4,6 +4,13 @@
     text-align: left;
     line-height: 27px;
     text-transform: uppercase;
+    @apply text-white;
+    text-shadow: 0 0 4px rgba(255,255,255,0.50);
+
+    &--orange {
+        @apply text-orange;
+        text-shadow: 0 0 4px #FF921A;
+    }
 }
 
 .text {

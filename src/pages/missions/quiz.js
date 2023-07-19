@@ -3,14 +3,13 @@ import Head from 'next/head'
 import CardInfo from '@/components/Cards/CardInfo'
 import Card from '@/components/Cards/Card'
 import InternalLink from '@/components/Links/InternalLink'
-import bg from '../../public/images/bg.png'
 import List from '@/components/Lists/List'
 
 const Dashboard = () => {
 
-    const missions = [
+    const answers = [
         {
-            title: 'Hello', href: '/missions/quiz',
+            title: 'Hello', href: 'hello',
         },
         {
             title: 'Hello1', href: 'hello1',
@@ -21,7 +20,7 @@ const Dashboard = () => {
         <AppLayout
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Dashboard
+                    Quiz
                 </h2>
             }>
             <Head>
@@ -43,14 +42,18 @@ const Dashboard = () => {
                     </div>
                     <div className={'col-span-6 mt-10'}>
                         <Card>
-                            <h1 className={'label label--orange mb-8'}>Missions overview</h1>
-                            <List items={missions} score/>
+                            <h1 className={'label label--orange mb-6'}>Mission 2: The AI quiz</h1>
+                            <p className={'text uppercase mb-8'}>Question 1: Hello hello</p>
+                            <div className={'mb-8'}>
+                                <List items={answers} questionaire/>
+                            </div>
+                            <InternalLink href={'/'}>Next question</InternalLink>
                         </Card>
                     </div>
             </div>
         </div>
     <div className={'fixed inset-0 bg-blueDark opacity-80 -z-10'}/>
-    <div className={'fixed inset-0 bg-cover bg-center -z-20'} style={{backgroundImage: `url('images/bg.png')`}}/>
+    <div className={'fixed inset-0 bg-cover bg-center -z-20'} style={{backgroundImage: `url('../images/bg.png')`}}/>
 </AppLayout>
 )
 }

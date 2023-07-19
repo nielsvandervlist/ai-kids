@@ -1,0 +1,27 @@
+.bottom-nav {
+    ul {
+        li{
+            a{
+                opacity: 0.70;
+                transition: 0.3s all ease-in-out;
+
+                &:hover {
+                    opacity:1;
+                }
+
+                &.active {
+                    opacity:1;
+
+                    span {
+                        color: #FF921A;
+                        text-shadow: 0 0 4px #FF921A;
+                    }
+                }
+
+                span{
+                    text-shadow: 0 0 4px rgba(255,255,255,0.50);
+                }
+            }
+        }
+    }
+}

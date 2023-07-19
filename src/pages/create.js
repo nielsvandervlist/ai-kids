@@ -10,10 +10,10 @@ const Dashboard = () => {
 
     const missions = [
         {
-            title: 'Hello', href: '/missions/quiz',
+            title: 'Midjourney', href: '/missions/quiz',
         },
         {
-            title: 'Hello1', href: 'hello1',
+            title: 'ChatGPT', href: 'hello1',
         }
     ]
 
@@ -30,21 +30,10 @@ const Dashboard = () => {
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 grid grid-cols-12">
-                    <div className={'col-span-5'}>
-                        <CardInfo>
-                            <h1 className={'label mb-8'}>This is the title</h1>
-                            <span className={'card-line mb-8 w-full block'}/>
-                            <p className={'text mb-8'}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <InternalLink href={'/'}>Test</InternalLink>
-                        </CardInfo>
-                    </div>
-                    <div className={'col-span-1'}>
-                        <span className={'h-10 card-line card-line--line inline-block w-full'}/>
-                    </div>
-                    <div className={'col-span-6 mt-10'}>
+                    <div className={'col-span-6 col-start-4 mt-10'}>
                         <Card>
-                            <h1 className={'label label--orange mb-8'}>Missions overview</h1>
-                            <List items={missions} score/>
+                            <h1 className={'label label--orange mb-8'}>AI websites</h1>
+                            <List items={missions}/>
                         </Card>
                     </div>
             </div>
