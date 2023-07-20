@@ -8,6 +8,8 @@ import Label from '@/components/Label'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useState } from 'react'
+import SubmitButton from '@/components/Links/SubmitButton'
+import FormInput from '@/components/Forms/FormInput'
 
 const Register = () => {
     const { register } = useAuth({
@@ -46,7 +48,7 @@ const Register = () => {
                     <div>
                         <Label htmlFor="name">Name</Label>
 
-                        <Input
+                        <FormInput
                             id="name"
                             type="text"
                             value={name}
@@ -63,7 +65,7 @@ const Register = () => {
                     <div className="mt-4">
                         <Label htmlFor="email">Email</Label>
 
-                        <Input
+                        <FormInput
                             id="email"
                             type="email"
                             value={email}
@@ -79,7 +81,7 @@ const Register = () => {
                     <div className="mt-4">
                         <Label htmlFor="password">Password</Label>
 
-                        <Input
+                        <FormInput
                             id="password"
                             type="password"
                             value={password}
@@ -101,7 +103,7 @@ const Register = () => {
                             Confirm Password
                         </Label>
 
-                        <Input
+                        <FormInput
                             id="passwordConfirmation"
                             type="password"
                             value={passwordConfirmation}
@@ -118,14 +120,14 @@ const Register = () => {
                         />
                     </div>
 
-                    <div className="flex items-center justify-end mt-4">
+                    <div className="flex items-center justify-end mt-4 flex-col gap-8">
                         <Link
                             href="/login"
-                            className="underline text-sm text-gray-600 hover:text-gray-900">
+                            className="underline text-sm text-white">
                             Already registered?
                         </Link>
 
-                        <Button className="ml-4">Register</Button>
+                        <SubmitButton>Register</SubmitButton>
                     </div>
                 </form>
             </AuthCard>

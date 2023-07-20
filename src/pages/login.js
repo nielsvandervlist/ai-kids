@@ -10,6 +10,8 @@ import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import FormInput from '@/components/Forms/FormInput'
+import SubmitButton from '@/components/Links/SubmitButton'
 
 const Login = () => {
     const router = useRouter()
@@ -61,7 +63,7 @@ const Login = () => {
                     <div>
                         <Label htmlFor="email">Email</Label>
 
-                        <Input
+                        <FormInput
                             id="email"
                             type="email"
                             value={email}
@@ -78,7 +80,7 @@ const Login = () => {
                     <div className="mt-4">
                         <Label htmlFor="password">Password</Label>
 
-                        <Input
+                        <FormInput
                             id="password"
                             type="password"
                             value={password}
@@ -109,20 +111,20 @@ const Login = () => {
                                 }
                             />
 
-                            <span className="ml-2 text-sm text-gray-600">
+                            <span className="ml-2 text-sm text-white">
                                 Remember me
                             </span>
                         </label>
                     </div>
 
-                    <div className="flex items-center justify-end mt-4">
+                    <div className="flex items-center justify-end mt-4 flex-col gap-8">
                         <Link
                             href="/forgot-password"
-                            className="underline text-sm text-gray-600 hover:text-gray-900">
+                            className="underline text-sm text-white block">
                             Forgot your password?
                         </Link>
 
-                        <Button className="ml-3">Login</Button>
+                        <SubmitButton className="ml-3">Login</SubmitButton>
                     </div>
                 </form>
             </AuthCard>

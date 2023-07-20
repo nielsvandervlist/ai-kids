@@ -4,8 +4,11 @@ import CardInfo from '@/components/Cards/CardInfo'
 import Card from '@/components/Cards/Card'
 import InternalLink from '@/components/Links/InternalLink'
 import List from '@/components/Lists/List'
+import { useIndex, useShow } from 'ra-fetch'
 
 const Dashboard = () => {
+
+    const [questions, setQuestions] = useIndex('questions')
 
     const answers = [
         {
