@@ -39,6 +39,12 @@ Router.baseURL(process.env.NEXT_PUBLIC_BACKEND_URL)
     .store('questions', '/api/questions', {form_data: true})
     .update('questions', '/api/questions/{id}', {form_data: true})
 
+    // User missions
+    .index('user_missions', '/api/user_missions')
+    .show('user_missions', '/api/user_missions/{id}')
+    .store('user_missions', '/api/user_missions', {form_data: true})
+    .update('user_missions', '/api/questions/{id}', {form_data: true})
+
     // Databases
     .index('missions', '/api/missions')
     .show('missions', '/api/missions/{id}')
@@ -49,6 +55,7 @@ Router.baseURL(process.env.NEXT_PUBLIC_BACKEND_URL)
     .index('choices', '/api/choices')
     .show('choices', '/api/choices/{id}')
     .store('choices', '/api/choices', {form_data: true})
+    .store('choices.answer', '/api/choices/answer', {form_data: true})
     .update('choices', '/api/choices/{id}', {form_data: true})
 
     // Tables

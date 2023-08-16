@@ -5,12 +5,13 @@ import Card from '@/components/Cards/Card'
 import InternalLink from '@/components/Links/InternalLink'
 import bg from '../../public/images/bg.png'
 import List from '@/components/Lists/List'
+import Link from 'next/link'
 
 const Dashboard = () => {
 
     const missions = [
         {
-            title: 'Midjourney', href: '/missions/quiz',
+            title: 'Midjourney', href: '/missions/quiz'
         },
         {
             title: 'ChatGPT', href: 'hello1',
@@ -33,7 +34,13 @@ const Dashboard = () => {
                     <div className={'col-span-6 col-start-4 mt-10'}>
                         <Card>
                             <h1 className={'label label--orange mb-8'}>AI websites</h1>
-                            <List items={missions}/>
+                            {
+                                missions.map((item, index) => {
+                                    return <Link href={item.href} className={'block card card--mission py-[5px] px-[10px] mb-4 text-white uppercase'}>
+                                        {item.title}
+                                    </Link>
+                                })
+                            }
                         </Card>
                     </div>
             </div>

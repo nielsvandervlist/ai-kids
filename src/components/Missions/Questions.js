@@ -3,6 +3,7 @@ import Card from '@/components/Cards/Card'
 import {useEffect, useState} from 'react'
 import SubmitButton from '@/components/Links/SubmitButton'
 import Choices from '@/components/Missions/Choices'
+import InternalLink from '@/components/Links/InternalLink'
 
 export default function Questions({mission_id}) {
 
@@ -15,20 +16,14 @@ export default function Questions({mission_id}) {
         if(!questions.loading && questionId !== questions.data[0].id){
             setQuestionId(questions.data[0].id)
         }
-    }, [questionId, questions])
+    }, [questions])
 
     if (questions.loading || !questionId) {
         return <></>
     }
 
-    function nextQuestion(value, calc) {
-
-        if(calc === 'plus'){
-            setQuestionId(questionId + 1)
-        }
-        if(calc === 'min'){
-            setQuestionId(questionId - 1)
-        }
+    function nextQuestion(value, answer) {
+        setQuestionId(questionId + 1)
         setActiveQuestion(value)
         if(activeQuestion === questions.data.length - 1){
             setDone(true)
@@ -47,19 +42,21 @@ export default function Questions({mission_id}) {
                     return <div key={index}>
                         <p className={'text uppercase mb-8'}>{question.value}?</p>
                         <div className={'mb-8'}>
-                            <Choices question_id={questionId}/>
+                            <Choices mission_id={mission_id} question_id={questionId} nextQuestion={nextQuestion}/>
                         </div>
                     </div>
 
                 })
             }
-
-            <div className={'flex justify-evenly gap-20'}>
-                <SubmitButton onClick={() => nextQuestion(activeQuestion - 1, 'minus')}>Previous
-                    question</SubmitButton>
-                <SubmitButton onClick={() => nextQuestion(activeQuestion + 1, 'plus')}>Next question</SubmitButton>
-            </div>
-
+            {
+                done && <div>
+                    <h1 className={'label mb-8'}>You are done with the questionaire</h1>
+                    <span className={'card-line mb-8 w-full block'}/>
+                    <p className={'text mb-8'}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <InternalLink href={'/'}>Show results</InternalLink>
+                </div>
+            }
         </Card>
     </div>
 }

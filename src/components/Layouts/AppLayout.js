@@ -11,7 +11,7 @@ const AppLayout = ({ header, children }) => {
             {/*<Navigation user={user} />*/}
 
             {/* Page Heading */}
-            <Header/>
+            <Header user={user}/>
             {/* Page Content */}
             <main>{children}</main>
             <BottomNav/>

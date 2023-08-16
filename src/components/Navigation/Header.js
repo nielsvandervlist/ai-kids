@@ -2,7 +2,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faUserAstronaut, faStar} from '@fortawesome/free-solid-svg-icons'
 import {useAuth} from '@/hooks/auth'
 
-export default function Header(){
+export default function Header({user}){
 
     const { logout } = useAuth()
 
@@ -13,7 +13,7 @@ export default function Header(){
         </div>
         <span className={'label'}>Ai for kids</span>
         <div className={'flex gap-4 items-center'}>
-            <span className={'label'}>0: points</span>
+            <span className={'label'}>{user?.points} points</span>
             <FontAwesomeIcon className={'text-[24px] text-orange'} icon={faStar}/>
         </div>
     </header>
