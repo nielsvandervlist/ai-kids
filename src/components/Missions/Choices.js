@@ -1,5 +1,6 @@
 import {useIndex, useStore} from 'ra-fetch'
 import List from '@/components/Lists/List'
+import PuzzelList from '@/components/Lists/PuzzelList'
 
 export default function Choices({question_id, mission_id, nextQuestion}){
 
@@ -10,6 +11,7 @@ export default function Choices({question_id, mission_id, nextQuestion}){
     }
 
     return <div className={'mb-8'}>
-        <List questionaire items={choices.data} mission_id={mission_id} nextQuestion={nextQuestion} question_id={question_id}/>
+        <PuzzelList questionaire items={choices.data} mission_id={mission_id} nextQuestion={nextQuestion} question_id={question_id}/>
+        {/*<List questionaire items={choices.data} mission_id={mission_id} nextQuestion={nextQuestion} question_id={question_id}/>*/}
     </div>
 }
