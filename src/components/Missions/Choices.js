@@ -11,7 +11,7 @@ export default function Choices({question_id, mission_id, nextQuestion}){
     }
 
     return <div className={'mb-8'}>
-        <PuzzelList questionaire items={choices.data} mission_id={mission_id} nextQuestion={nextQuestion} question_id={question_id}/>
-        {/*<List questionaire items={choices.data} mission_id={mission_id} nextQuestion={nextQuestion} question_id={question_id}/>*/}
+        {/*<PuzzelList questionaire items={choices.data} mission_id={mission_id} nextQuestion={nextQuestion} question_id={question_id}/>*/}
+        <List questionaire items={choices.data} mission_id={mission_id} nextQuestion={nextQuestion} question_id={question_id}/>
     </div>
 }

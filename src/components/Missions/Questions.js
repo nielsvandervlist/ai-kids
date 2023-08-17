@@ -1,16 +1,22 @@
-import {useIndex} from 'ra-fetch'
+import {useIndex, useStore} from 'ra-fetch'
 import Card from '@/components/Cards/Card'
 import {useEffect, useState} from 'react'
-import SubmitButton from '@/components/Links/SubmitButton'
 import Choices from '@/components/Missions/Choices'
 import InternalLink from '@/components/Links/InternalLink'
+import {useRouter} from 'next/router'
 
-export default function Questions({mission_id}) {
+export default function Questions({mission_id, user}) {
 
+    const router = useRouter()
     const [questions, setQuestions] = useIndex('questions', {mission_id: mission_id})
     const [done, setDone] = useState(false)
     const [activeQuestion, setActiveQuestion] = useState(0)
     const [questionId, setQuestionId] = useState()
+    const [userMission, setUserMission] = useIndex('user_missions', {
+        mission_id: mission_id
+    })
+
+    console.log(userMission)
 
     useEffect(() => {
         if(!questions.loading && questionId !== questions.data[0].id){
@@ -20,6 +26,13 @@ export default function Questions({mission_id}) {
 
     if (questions.loading || !questionId) {
         return <></>
+    }
+
+    if(done){
+        router.push({
+            pathname: `${mission_id}/results`,
+            query: {user_mission_id: userMission.data[0].id}
+        })
     }
 
     function nextQuestion(value, answer) {
@@ -47,15 +60,6 @@ export default function Questions({mission_id}) {
                     </div>
 
                 })
-            }
-            {
-                done && <div>
-                    <h1 className={'label mb-8'}>You are done with the questionaire</h1>
-                    <span className={'card-line mb-8 w-full block'}/>
-                    <p className={'text mb-8'}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <InternalLink href={'/'}>Show results</InternalLink>
-                </div>
             }
         </Card>
     </div>

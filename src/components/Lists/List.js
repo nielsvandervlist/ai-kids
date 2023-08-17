@@ -10,6 +10,7 @@ export default function List({items, question_id, nextQuestion, mission_id, scor
 
     const [choice, setChoice, submitChoice] = useStore('choices.answer', {
         mission_id: mission_id,
+        question_id: question_id,
         answer: '',
     })
 

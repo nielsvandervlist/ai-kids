@@ -4,8 +4,9 @@ import CardInfo from '@/components/Cards/CardInfo'
 import InternalLink from '@/components/Links/InternalLink'
 import {useRouter} from 'next/router'
 import Questions from '@/components/Missions/Questions'
+import {useShow} from 'ra-fetch'
 
-const Dashboard = () => {
+const Mission = () => {
 
     const router = useRouter()
     const query = router.query
@@ -52,4 +53,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Mission

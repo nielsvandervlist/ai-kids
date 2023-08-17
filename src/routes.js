@@ -43,7 +43,8 @@ Router.baseURL(process.env.NEXT_PUBLIC_BACKEND_URL)
     .index('user_missions', '/api/user_missions')
     .show('user_missions', '/api/user_missions/{id}')
     .store('user_missions', '/api/user_missions', {form_data: true})
-    .update('user_missions', '/api/questions/{id}', {form_data: true})
+    .update('user_missions', '/api/user_missions/{id}', {form_data: true})
+    .delete('user_missions', '/api/user_missions/{id}')
 
     // Databases
     .index('missions', '/api/missions')
