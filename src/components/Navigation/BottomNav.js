@@ -22,7 +22,7 @@ export default function BottomNav(){
         return router.pathname === href;
     };
 
-    return <nav className={'bottom-nav w-full flex justify-center absolute bottom-10'}>
+    return <nav className={'bottom-nav w-full flex justify-center static my-8 mt-auto bottom-10'}>
         <ul className={'flex gap-10'}>
             {
                 menuItems.map((item, index) => {

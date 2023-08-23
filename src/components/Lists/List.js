@@ -46,7 +46,7 @@ export default function List({items, question_id, nextQuestion, mission_id, scor
                         }
 
                         {!nextQuestion &&
-                            <Link href={`missions/${item.id}`} className={'flex justify-between items-center'}>
+                            <Link href={item.name === 'Image Generation' ? '/missions/image-generation' : item.name === 'Coding' ? 'missions/code-quiz' : `missions/${item.id}`} className={'flex justify-between items-center'}>
                                 {item.name || item.value}
                                 {score && <FontAwesomeIcon className={'text-orange'} icon={faStar}/>}
                             </Link>}

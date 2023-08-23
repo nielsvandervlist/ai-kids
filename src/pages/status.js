@@ -10,8 +10,13 @@ import {faStar} from '@fortawesome/free-solid-svg-icons'
 import FormInput from '@/components/Forms/FormInput'
 import SubmitButton from '@/components/Links/SubmitButton'
 import List from '@/components/Lists/List'
+import {useIndex} from 'ra-fetch'
 
-const Dashboard = () => {
+const Status = () => {
+
+    const [userMissions, setUserMissions] = useIndex('user_missions', {
+        'user_id': 4
+    })
 
     const missions = [
         {
@@ -22,15 +27,19 @@ const Dashboard = () => {
         }
     ]
 
+    if(userMissions.loading){
+        return <></>
+    }
+
     return (
         <AppLayout
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Dashboard
+                    Status
                 </h2>
             }>
             <Head>
-                <title>Laravel - Dashboard</title>
+                <title>Laravel - Status</title>
             </Head>
 
             <div className="py-12">
@@ -70,10 +79,10 @@ const Dashboard = () => {
                     </div>
             </div>
         </div>
-    <div className={'fixed inset-0 bg-blueDark opacity-80 -z-10'}/>
+    <div className={'fixed inset-0 bg-blueDark opacity-90 -z-10'}/>
     <div className={'fixed inset-0 bg-cover bg-center -z-20'} style={{backgroundImage: `url('images/bg.png')`}}/>
 </AppLayout>
 )
 }
 
-export default Dashboard
+export default Status

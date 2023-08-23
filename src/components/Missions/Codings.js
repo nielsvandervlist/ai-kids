@@ -4,8 +4,9 @@ import {useEffect, useState} from 'react'
 import Choices from '@/components/Missions/Choices'
 import InternalLink from '@/components/Links/InternalLink'
 import {useRouter} from 'next/router'
+import Textarea from '@/components/Forms/Textarea'
 
-export default function Questions({mission_id, user}) {
+export default function Codings({mission_id, user}) {
 
     const router = useRouter()
     const [questions, setQuestions] = useIndex('questions', {mission_id: mission_id})
@@ -16,17 +17,19 @@ export default function Questions({mission_id, user}) {
         mission_id: mission_id
     })
 
+    const [text, setText] = useState('')
+
     useEffect(() => {
         if(!questions.loading && questionId !== questions.data[0].id){
             setQuestionId(questions.data[0].id)
         }
     }, [questions])
 
-    if (questions.loading || !questionId || userMission.loading) {
+    if (questions.loading || !questionId) {
         return <></>
     }
 
-    if(done || userMission.data[0].points > 0){
+    if(done){
         router.push({
             pathname: `${mission_id}/results`,
             query: {user_mission_id: userMission.data[0].id}
@@ -45,20 +48,22 @@ export default function Questions({mission_id, user}) {
         <Card>
 
             <h1 className={'label label--orange mb-6'}>Mission: {mission_id}</h1>
+            <p className={'text mb-4'}>Question: Decode the secret message encrypted using a simple AI cipher.</p>
+            <p className={'text mb-4'}>Each letter is shifted 4 places backward in the alphabet. Decode the message: "Lirki, Xlii!"</p>
             {
                 questions.data.map((question, index) => {
                     if (activeQuestion !== index) {
                         return <div key={index}></div>
                     }
                     return <div key={index}>
-                        <p className={'text uppercase mb-8'}>{question.value}?</p>
                         <div className={'mb-8'}>
-                            <Choices mission_id={mission_id} question_id={questionId} nextQuestion={nextQuestion}/>
+                            <Textarea text={text} setText={setText}/>
                         </div>
                     </div>
 
                 })
             }
+            <button className={'btn btn--orange'}>Submit code</button>
         </Card>
     </div>
 }

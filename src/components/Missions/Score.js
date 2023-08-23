@@ -1,7 +1,4 @@
 import {useDelete, useIndex, useStore, useUpdate} from 'ra-fetch'
-import InternalLink from '@/components/Links/InternalLink'
-import {useEffect} from 'react'
-import {router} from 'next/client'
 import {useRouter} from 'next/router'
 
 export default function Score({mission_id, user_mission_id}) {
@@ -9,22 +6,17 @@ export default function Score({mission_id, user_mission_id}) {
     const [results, setResults] = useIndex('user_missions', {mission_id: mission_id})
 
     const [deleteUserMission, submitDeleteUserMission] = useDelete('user_missions', {id: user_mission_id})
-    const [user, setUser, submitUser] = useUpdate('user', {
-        points: ''
-    })
-
-    useEffect(() => {
-        if(!results.loading){
-            setUser({
-                points: results.data[0].points
-            })
-        }
-    }, [results])
+    const [user, setUser, submitUser] = useUpdate('user.points')
 
     function handleSubmit(){
         submitUser().then((res) => {
             if(!res.errors.length){
-                console.log(res)
+                router.push({
+                    pathname: '/',
+                    query: {
+                        points: user.data.points
+                    }
+                })
             }
         })
     }

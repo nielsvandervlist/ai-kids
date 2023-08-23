@@ -11,7 +11,7 @@ const Dashboard = () => {
 
     const [missions, setMissions] = useIndex('missions')
 
-    if(missions.loading){
+    if (missions.loading) {
         return <></>
     }
 
@@ -30,10 +30,16 @@ const Dashboard = () => {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 grid grid-cols-12">
                     <div className={'col-span-5'}>
                         <CardInfo>
-                            <h1 className={'label mb-8'}>This is the title</h1>
+                            <h1 className={'label mb-8'}>Welcome username</h1>
                             <span className={'card-line mb-8 w-full block'}/>
-                            <p className={'text mb-8'}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <InternalLink href={'/'}>Test</InternalLink>
+                            <p className={'text mb-8'}>Welcome to the AI Kids Learning Platform, where young minds
+                                embark on a captivating journey into the world of artificial intelligence! Our platform
+                                offers an interactive and engaging way to learn about AI concepts and their real-world
+                                applications.</p>
+                            <p className={'text mb-8'}>Join us in unraveling the mysteries of AI and discovering how
+                                it's shaping the world around us. Let's learn, create, and explore the endless
+                                possibilities of artificial intelligence together!</p>
+                            <InternalLink href={'/'}>Start first mission</InternalLink>
                         </CardInfo>
                     </div>
                     <div className={'col-span-1'}>
@@ -45,12 +51,13 @@ const Dashboard = () => {
                             <List items={missions.data} score/>
                         </Card>
                     </div>
+                </div>
             </div>
-        </div>
-    <div className={'fixed inset-0 bg-blueDark opacity-80 -z-10'}/>
-    <div className={'fixed inset-0 bg-cover bg-center -z-20'} style={{backgroundImage: `url('images/bg.png')`}}/>
-</AppLayout>
-)
+            <div className={'fixed inset-0 bg-blueDark opacity-90 -z-10'}/>
+            <div className={'fixed inset-0 bg-cover bg-center -z-20'}
+                 style={{backgroundImage: `url('images/bg.png')`}}/>
+        </AppLayout>
+    )
 }
 
 export default Dashboard

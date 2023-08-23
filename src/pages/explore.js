@@ -5,6 +5,7 @@ import Card from '@/components/Cards/Card'
 import InternalLink from '@/components/Links/InternalLink'
 import bg from '../../public/images/bg.png'
 import List from '@/components/Lists/List'
+import Link from 'next/link'
 
 const Dashboard = () => {
 
@@ -21,13 +22,18 @@ const Dashboard = () => {
 
             <div className={'fixed inset-0'}>
                 <div className={'border-l border-b border-orange w-[100px] h-[200px] absolute left-[170px] -rotate-45 bottom-[40%]'}>
-                    <span className={'card card--explore rotate-45 inline-block text-white uppercase absolute -right-[40px] bottom-0'}>Explore</span>
+                    <span className={'card card--explore rotate-45 inline-block text-white uppercase absolute -right-[40px] bottom-0'}>
+                        <Link href={'/explore'}>Explore</Link>
+                    </span>
                 </div>
                 <div className={'border-l border-b border-orange w-[100px] h-[200px] absolute left-[500px] -rotate-45 top-[160px]'}>
-                    <span className={'card card--explore rotate-45 inline-block text-white uppercase absolute -right-[40px] bottom-0'}>Games</span>
+                    <span className={'card card--explore rotate-45 inline-block text-white uppercase absolute -right-[40px] bottom-0'}>
+                        <Link href={'/games'}>Games</Link>
+                    </span>
                 </div>
+                <div className={'border-l border-b border-orange w-[100px] h-[200px] absolute left-[810px] -rotate-[130deg] top-[430px]'}></div>
             </div>
-            <div className={'fixed bottom-0 w-full bg-blueDark opacity-80 -z-10 h-[150px]'}/>
+            <div className={'fixed bottom-0 w-full bg-blueDark opacity-90 -z-10 h-[150px]'}/>
              <div className={'fixed inset-0 bg-cover -z-20'} style={{backgroundImage: `url('images/bg-explorer.png')`}}/>
 </AppLayout>
 )

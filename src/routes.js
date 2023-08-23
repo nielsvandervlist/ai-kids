@@ -16,7 +16,10 @@ Router.baseURL(process.env.NEXT_PUBLIC_BACKEND_URL)
 
     // User
     .show('user', '/api/user')
-    .update('user', '/api/user')
+    .update('user.points', '/api/user/points')
+
+    //Users
+    .index('users', '/api/users')
 
     // Password
     .store('password.forgot', '/forgot-password')

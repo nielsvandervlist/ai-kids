@@ -7,7 +7,7 @@ const AppLayout = ({ header, children }) => {
     const { user } = useAuth({ middleware: 'auth' })
 
     return (
-        <div className="min-h-screen relative">
+        <div className="min-h-screen relative flex flex-col">
             {/*<Navigation user={user} />*/}
 
             {/* Page Heading */}

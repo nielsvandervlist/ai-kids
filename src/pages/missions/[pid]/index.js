@@ -46,7 +46,7 @@ const Mission = () => {
                     </div>
                 </div>
             </div>
-            <div className={'fixed inset-0 bg-blueDark opacity-80 -z-10'}/>
+            <div className={'fixed inset-0 bg-blueDark opacity-90 -z-10'}/>
             <div className={'fixed inset-0 bg-cover bg-center -z-20'}
                  style={{backgroundImage: `url('../images/bg.png')`}}/>
         </AppLayout>
