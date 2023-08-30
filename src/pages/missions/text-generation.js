@@ -7,7 +7,7 @@ import PromptInput from '@/components/OpenAI/PromptInput'
 import {useState} from 'react'
 import {useIndex} from 'ra-fetch'
 
-export default function ImageGeneration(){
+export default function TextGeneration(){
 
     const [completion, setCompletion] = useState(true)
     const [mission, setMission] = useIndex('user_missions', {mission_id: 3})

@@ -20,6 +20,7 @@ Router.baseURL(process.env.NEXT_PUBLIC_BACKEND_URL)
 
     //Users
     .index('users', '/api/users')
+    .update('users', '/api/users/{id}', {form_data: true})
 
     // Password
     .store('password.forgot', '/forgot-password')

@@ -1,8 +1,7 @@
 import Image from 'next/image'
-import menuOne from '../../../public/images/menu-1.svg'
-import menuTwo from '../../../public/images/menu-2.svg'
-import menuThree from '../../../public/images/menu-3.svg'
-import menuFour from '../../../public/images/menu-4.svg'
+import menuOne from '../../../public/images/menu-1.png'
+import menuTwo from '../../../public/images/menu-2.png'
+import menuThree from '../../../public/images/menu-3.png'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
@@ -14,7 +13,6 @@ export default function BottomNav(){
         { label: 'Missions', href: '/dashboard', image: menuOne },
         { label: 'Explore', href: '/explore', image: menuTwo },
         { label: 'Create', href: '/create', image: menuThree },
-        { label: 'Status', href: '/status', image: menuFour },
     ];
 
     // Function to check if a menu item is active
@@ -22,16 +20,16 @@ export default function BottomNav(){
         return router.pathname === href;
     };
 
-    return <nav className={'bottom-nav w-full flex justify-center static my-8 mt-auto bottom-10'}>
+    return <nav className={'bottom-nav w-full flex justify-center absolute mt-auto top-4'}>
         <ul className={'flex gap-10'}>
             {
                 menuItems.map((item, index) => {
                     return <li key={index}>
-                        <Link className={isActiveMenuItem(item.href) ? 'text-center inline-block active' : 'text-center inline-block'} href={item.href}>
-                            <figure className={'overflow-hidden rounded-full mb-4'}>
-                                <Image src={item.image} alt={'menu'}/>
+                        <Link className={isActiveMenuItem(item.href) ? 'flex flex-col text-center active h-full' : 'flex flex-col text-center inline-block h-full'} href={item.href}>
+                            <figure className={'overflow-hidden rounded-full mb-2'}>
+                                <Image width={80} height={80} src={item.image} alt={'menu'}/>
                             </figure>
-                            <span className={'label text-white'}>{item.label}</span>
+                            <span className={'label text-white mt-auto'}>{item.label}</span>
                         </Link>
                     </li>
                 })

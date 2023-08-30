@@ -1,7 +1,6 @@
 .label {
     font-size: 14px;
     letter-spacing: 1.91px;
-    text-align: left;
     line-height: 27px;
     text-transform: uppercase;
     @apply text-white;
@@ -10,6 +9,11 @@
     &--orange {
         @apply text-orange;
         text-shadow: 0 0 4px #FF921A;
+    }
+    &--big {
+        font-size: 20px;
+        font-weight: 700;
+        text-shadow: 0 0 2px #FF921A;
     }
 }
 

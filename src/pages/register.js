@@ -10,11 +10,12 @@ import { useAuth } from '@/hooks/auth'
 import { useState } from 'react'
 import SubmitButton from '@/components/Links/SubmitButton'
 import FormInput from '@/components/Forms/FormInput'
+import Characters from '@/components/Profile/Characters'
 
 const Register = () => {
     const { register } = useAuth({
         middleware: 'guest',
-        redirectIfAuthenticated: '/dashboard',
+        redirectIfAuthenticated: '/character',
     })
 
     const [name, setName] = useState('')

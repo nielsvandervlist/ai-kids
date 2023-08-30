@@ -1,0 +1,16 @@
+.character {
+    will-change: transform;
+    position: absolute;
+    bottom: 0;
+    transition: left 0.2s ease-in-out; /* Add transition for smooth animation */
+}
+
+.game-area {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    right: 0;
+    width: 100vw; /* Full width of the viewport */
+    height: 200px; /* Adjust height as needed */
+}

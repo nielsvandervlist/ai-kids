@@ -33,7 +33,6 @@ const Dashboard = () => {
                 </div>
                 <div className={'border-l border-b border-orange w-[100px] h-[200px] absolute left-[810px] -rotate-[130deg] top-[430px]'}></div>
             </div>
-            <div className={'fixed bottom-0 w-full bg-blueDark opacity-90 -z-10 h-[150px]'}/>
              <div className={'fixed inset-0 bg-cover -z-20'} style={{backgroundImage: `url('images/bg-explorer.png')`}}/>
 </AppLayout>
 )
